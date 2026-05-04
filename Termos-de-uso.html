@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Termos de Uso — DentLeads</title>
+<meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#D4AF37">
+<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/yoshiowner/dentleads-images/main/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Syne:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --void:#030B10;--ink:#071118;--surface:#11222E;--gold:#D4AF37;--gold-bright:#F5D76E;--gold-deep:#A67C00;
+  --gold-line:rgba(212,175,55,0.35);--gold-faint:rgba(212,175,55,0.08);--gold-glow:rgba(212,175,55,0.15);
+  --white:#FFF;--muted:rgba(237,242,240,0.6);--muted-strong:rgba(237,242,240,0.78);
+  --grad-gold:linear-gradient(135deg,var(--gold-deep),var(--gold),var(--gold-bright))
+}
+html{scroll-behavior:smooth}
+body{min-height:100vh;overflow-x:hidden;font-family:'Plus Jakarta Sans',sans-serif;background:var(--ink);color:var(--white);position:relative}
+body::before{content:'';position:fixed;top:-250px;right:-250px;width:700px;height:700px;background:radial-gradient(circle,var(--gold-glow),transparent 70%);pointer-events:none;z-index:0}
+::-webkit-scrollbar{width:2px}::-webkit-scrollbar-track{background:var(--void)}::-webkit-scrollbar-thumb{background:var(--grad-gold);border-radius:1px}
+
+.progress-track{position:fixed;top:0;left:0;width:100%;height:2px;z-index:1001;background:transparent}
+.progress-fill{height:100%;width:0%;background:var(--grad-gold);transition:width .08s linear;border-radius:0 1px 1px 0}
+
+.nav{position:sticky;top:0;z-index:500;background:rgba(7,17,24,.95);backdrop-filter:blur(40px);border-bottom:1px solid var(--gold-line)}
+.nav-top{display:flex;align-items:center;justify-content:space-between;max-width:1140px;margin:0 auto;padding:0 52px;height:64px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo-mark{width:36px;height:36px;flex-shrink:0}
+.logo-mark img{width:100%;height:100%;object-fit:contain;padding:3px}
+.logo-name{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700;color:var(--white);letter-spacing:.3px;line-height:1}.logo-name em{color:var(--gold);font-style:normal}
+.nav-back{display:flex;align-items:center;gap:6px;color:var(--muted);text-decoration:none;font-family:'Syne',sans-serif;font-size:9.5px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;transition:color .2s}.nav-back:hover{color:var(--gold)}
+.nav-back i{font-size:10px}
+
+.legal-layout{display:flex;max-width:1140px;margin:0 auto;gap:64px;padding:56px 52px 80px;position:relative;z-index:1}
+
+.legal-toc{position:sticky;top:96px;width:210px;flex-shrink:0;align-self:flex-start;max-height:calc(100vh - 120px);overflow-y:auto;padding-right:8px}
+.legal-toc::-webkit-scrollbar{width:0}
+.toc-title{font-family:'Syne',sans-serif;font-size:8.5px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--gold-line)}
+.toc-list{list-style:none;padding:0}
+.toc-item{margin-bottom:4px}
+.toc-link{display:flex;align-items:baseline;gap:8px;color:var(--muted);text-decoration:none;font-size:11px;line-height:1.55;padding:5px 0 5px 14px;border-left:2px solid transparent;transition:all .2s}
+.toc-link:hover{color:var(--muted-strong)}
+.toc-link.active{color:var(--gold-bright);border-left-color:var(--gold)}
+.toc-num{font-family:'Syne',sans-serif;font-size:8.5px;font-weight:700;flex-shrink:0;min-width:20px;color:var(--gold-deep);transition:color .2s}
+.toc-link.active .toc-num{color:var(--gold)}
+
+.toc-toggle{display:none;width:100%;padding:14px 18px;background:var(--surface);border:1px solid var(--gold-line);border-radius:8px;color:var(--white);font-family:'Syne',sans-serif;font-size:10px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;cursor:pointer;margin-bottom:20px;justify-content:space-between;align-items:center;transition:border-color .2s}
+.toc-toggle:hover{border-color:var(--gold)}
+.toc-toggle i{font-size:10px;transition:transform .3s}
+.toc-toggle.open i{transform:rotate(180deg)}
+.toc-toggle.open{border-color:var(--gold);border-radius:8px 8px 0 0}
+.mobile-toc-wrap{display:none}
+.mobile-toc-wrap.open{display:block;background:var(--surface);border:1px solid var(--gold-line);border-top:none;border-radius:0 0 8px 8px;padding:16px 18px 20px;margin-bottom:24px}
+.mobile-toc-wrap .toc-link{padding:8px 0 8px 14px;font-size:12px}
+
+.legal-content{flex:1;min-width:0}
+.legal-header{margin-bottom:40px}
+.legal-content h1{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,4vw,48px);font-weight:700;color:var(--white);margin-bottom:10px;line-height:1.05}
+.legal-meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:14px}
+.meta-badge{display:inline-flex;align-items:center;gap:7px;padding:6px 14px;background:var(--gold-faint);border:1px solid var(--gold-line);border-radius:100px;font-family:'Syne',sans-serif;font-size:9px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:var(--gold);line-height:1}
+.meta-badge i{font-size:8.5px;opacity:.8}
+.meta-badge--date{color:var(--muted-strong);background:rgba(237,242,240,0.04);border-color:rgba(237,242,240,0.1)}
+.meta-badge--date i{color:var(--muted);opacity:.6}
+.legal-header-line{width:48px;height:2px;background:var(--grad-gold);border-radius:1px;margin-top:20px}
+
+.legal-section{margin-bottom:0}
+.legal-section[id]{scroll-margin-top:96px}
+.section-num{font-family:'Syne',sans-serif;font-size:8.5px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:6px;display:block}
+.legal-content h2{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;color:var(--gold-bright);margin:0 0 14px}
+.legal-content p{font-size:13px;color:var(--muted);line-height:1.88;margin-bottom:14px}
+.legal-content p.lead{color:var(--muted-strong);font-size:13.5px}
+.legal-content ul,.legal-content ol{padding-left:20px;margin-bottom:16px}
+.legal-content li{font-size:13px;color:var(--muted);line-height:1.88;margin-bottom:6px;padding-left:4px}
+.legal-content li::marker{color:var(--gold-deep)}
+.legal-content a{color:var(--gold);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px;transition:color .2s}.legal-content a:hover{color:var(--gold-bright)}
+.legal-content strong{color:var(--muted-strong);font-weight:600}
+.legal-content em{color:var(--muted-strong);font-style:italic}
+
+.legal-callout{background:var(--gold-faint);border-left:3px solid var(--gold);padding:18px 22px;margin:18px 0;border-radius:0 8px 8px 0}
+.legal-callout-label{font-family:'Syne',sans-serif;font-size:8.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.legal-callout-label i{font-size:10px}
+.legal-callout p{margin-bottom:8px;color:var(--muted-strong)}
+.legal-callout p:last-child{margin-bottom:0}
+
+.legal-divider{height:1px;background:var(--gold-line);margin:36px 0;opacity:.4}
+
+.legal-content h3{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:600;color:rgba(245,215,110,0.7);margin:24px 0 10px}
+
+.footer{background:var(--void);border-top:1px solid var(--gold-line);padding:24px 0;text-align:center;position:relative;z-index:1}
+.footer-copy{font-size:9px;color:rgba(255,255,255,.14);max-width:1140px;margin:0 auto;padding:0 52px;letter-spacing:.3px}
+.footer-links{display:flex;justify-content:center;gap:24px;margin-bottom:12px}
+.footer-links a{font-size:9px;color:rgba(255,255,255,.25);text-decoration:none;font-family:'Syne',sans-serif;letter-spacing:1px;text-transform:uppercase;transition:color .2s}
+.footer-links a:hover{color:var(--gold)}
+
+.scroll-top{position:fixed;bottom:28px;right:28px;width:42px;height:42px;border-radius:50%;background:var(--surface);border:1px solid var(--gold-line);color:var(--gold);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;visibility:hidden;transition:all .3s;z-index:400;font-size:13px}
+.scroll-top.visible{opacity:1;visibility:visible}
+.scroll-top:hover{background:var(--gold);color:var(--void);border-color:var(--gold)}
+
+@media(max-width:960px){
+  .legal-toc{display:none}
+  .toc-toggle{display:flex}
+  .legal-layout{flex-direction:column;gap:0;padding:40px 28px 64px}
+}
+@media(max-width:640px){
+  .nav-top{padding:0 20px}
+  .legal-layout{padding:32px 20px 56px}
+  .footer-copy{padding:0 20px}
+}
+</style>
+</head>
+<body>
+
+<div class="progress-track"><div class="progress-fill"></div></div>
+
+<nav class="nav"><div class="nav-top">
+<a href="index.html" class="logo"><div class="logo-mark"><img src="https://raw.githubusercontent.com/yoshiowner/dentleads-images/main/logo.png" alt="DentLeads logo" width="36" height="36"></div><span class="logo-name">Dent<em>Leads</em></span></a>
+<a href="index.html" class="nav-back"><i class="fa-solid fa-arrow-left"></i>Voltar ao site</a>
+</div></nav>
+
+<div class="legal-layout">
+
+<aside class="legal-toc">
+  <div class="toc-title">Conteúdo</div>
+  <ul class="toc-list">
+    <li class="toc-item"><a href="#sec-1" class="toc-link"><span class="toc-num">01</span>Aceitação dos Termos</a></li>
+    <li class="toc-item"><a href="#sec-2" class="toc-link"><span class="toc-num">02</span>Definições</a></li>
+    <li class="toc-item"><a href="#sec-3" class="toc-link"><span class="toc-num">03</span>Descrição dos Serviços</a></li>
+    <li class="toc-item"><a href="#sec-4" class="toc-link"><span class="toc-num">04</span>Obrigações do Cliente</a></li>
+    <li class="toc-item"><a href="#sec-5" class="toc-link"><span class="toc-num">05</span>Garantia de Resultados</a></li>
+    <li class="toc-item"><a href="#sec-6" class="toc-link"><span class="toc-num">06</span>Pagamento</a></li>
+    <li class="toc-item"><a href="#sec-7" class="toc-link"><span class="toc-num">07</span>Cancelamento e Rescisão</a></li>
+    <li class="toc-item"><a href="#sec-8" class="toc-link"><span class="toc-num">08</span>Propriedade Intelectual</a></li>
+    <li class="toc-item"><a href="#sec-9" class="toc-link"><span class="toc-num">09</span>Confidencialidade</a></li>
+    <li class="toc-item"><a href="#sec-10" class="toc-link"><span class="toc-num">10</span>Limitação de Responsabilidade</a></li>
+    <li class="toc-item"><a href="#sec-11" class="toc-link"><span class="toc-num">11</span>Caso Fortuito e Força Maior</a></li>
+    <li class="toc-item"><a href="#sec-12" class="toc-link"><span class="toc-num">12</span>Lei Aplicável e Foro</a></li>
+    <li class="toc-item"><a href="#sec-13" class="toc-link"><span class="toc-num">13</span>Disposições Gerais</a></li>
+    <li class="toc-item"><a href="#sec-14" class="toc-link"><span class="toc-num">14</span>Contato</a></li>
+  </ul>
+</aside>
+
+<div class="legal-content">
+
+<header class="legal-header">
+  <h1>Termos de Uso</h1>
+  <div class="legal-meta">
+    <span class="meta-badge meta-badge--date"><i class="fa-regular fa-calendar"></i>Última atualização: Maio de 2026</span>
+  </div>
+  <div class="legal-header-line"></div>
+</header>
+
+<button class="toc-toggle" aria-label="Abrir sumário"><span>Sumário</span><i class="fa-solid fa-chevron-down"></i></button>
+<div class="mobile-toc-wrap">
+  <ul class="toc-list">
+    <li class="toc-item"><a href="#sec-1" class="toc-link"><span class="toc-num">01</span>Aceitação dos Termos</a></li>
+    <li class="toc-item"><a href="#sec-2" class="toc-link"><span class="toc-num">02</span>Definições</a></li>
+    <li class="toc-item"><a href="#sec-3" class="toc-link"><span class="toc-num">03</span>Descrição dos Serviços</a></li>
+    <li class="toc-item"><a href="#sec-4" class="toc-link"><span class="toc-num">04</span>Obrigações do Cliente</a></li>
+    <li class="toc-item"><a href="#sec-5" class="toc-link"><span class="toc-num">05</span>Garantia de Resultados</a></li>
+    <li class="toc-item"><a href="#sec-6" class="toc-link"><span class="toc-num">06</span>Pagamento</a></li>
+    <li class="toc-item"><a href="#sec-7" class="toc-link"><span class="toc-num">07</span>Cancelamento e Rescisão</a></li>
+    <li class="toc-item"><a href="#sec-8" class="toc-link"><span class="toc-num">08</span>Propriedade Intelectual</a></li>
+    <li class="toc-item"><a href="#sec-9" class="toc-link"><span class="toc-num">09</span>Confidencialidade</a></li>
+    <li class="toc-item"><a href="#sec-10" class="toc-link"><span class="toc-num">10</span>Limitação de Responsabilidade</a></li>
+    <li class="toc-item"><a href="#sec-11" class="toc-link"><span class="toc-num">11</span>Caso Fortuito e Força Maior</a></li>
+    <li class="toc-item"><a href="#sec-12" class="toc-link"><span class="toc-num">12</span>Lei Aplicável e Foro</a></li>
+    <li class="toc-item"><a href="#sec-13" class="toc-link"><span class="toc-num">13</span>Disposições Gerais</a></li>
+    <li class="toc-item"><a href="#sec-14" class="toc-link"><span class="toc-num">14</span>Contato</a></li>
+  </ul>
+</div>
+
+<section class="legal-section" id="sec-1">
+  <span class="section-num">Seção 01</span>
+  <h2>Aceitação dos Termos</h2>
+  <p class="lead">Ao acessar o site <strong>dentleads.com.br</strong> ou contratar quaisquer serviços da DentLeads, você declara ter lido, compreendido e concordado integralmente com estes Termos de Uso.</p>
+  <p>Se você não concordar com qualquer disposição aqui presente, deve cessar imediatamente o uso do site e não contratar nossos serviços. A permanência no site ou a contratação de serviços após a publicação de alterações nestes termos constitui aceitação tácita das mudanças.</p>
+</section>
+
+<div class="legal-divider"></div>
+
+<section class="legal-section" id="sec-2">
+  <span class="section-num">Seção 02</span>
+  <h2>Definições</h2>
+  <p>Para os fins destes Termos de Uso, as expressões abaixo têm os seguintes significados:</p>
+  <ul>
+    <li><strong>"DentLeads", "nós" ou "contratada":</strong> DentLeads Gestão de Tráfego, prestadora dos serviços descritos nestes termos</li>
+    <li><strong>"Cliente", "você" ou "contratante":</strong> pessoa física ou jurídica que acessa o site ou contrata os serviços</li>
+    <li><strong>"Serviços":</strong> conjunto de atividades de gestão de tráfego pago, criação de criativos, automação e relatórios descritos na Seção 3</li>
+    <li><strong>"Plataformas":</strong> Meta Ads (Facebook/Instagram), Google Ads e demais plataformas de publicidade digital utilizadas na prestação dos serviços</li>
+    <li><strong>"Criativos":</strong> peças publicitárias (imagens, vídeos, textos, copys) produzidas para veiculação nas campanhas</li>
+    <li><strong>"Leads":</strong> contatos qualificados gerados por meio das campanhas publicitárias</li>
+    <li><strong>"Verba de mídia":</strong> valor investido diretamente nas plataformas de publicidade, distinto do valor cobrado pela DentLeads pela gestão</li>
+    <li><strong>"Proposta Comercial":</strong> documento específico que detalha escopo, valores e condições aplicáveis ao serviço contratado</li>
+  </ul>
+</section>
+
+<div class="legal-divider"></div>
+
+<section class="legal-section" id="sec-3">
+  <span class="section-num">Seção 03</span>
+  <h2>Descrição dos Serviços</h2>
+  <p>A DentLeads oferece serviços especializados de marketing digital para clínicas odontológicas, podendo incluir:</p>
+  <ul>
+    <li><strong>Gestão de tráfego pago:</strong> criação, configuração, otimização e monitoramento de campanhas nas Plataformas (Meta Ads, Google Ads)</li>
+    <li><strong>Criação de criativos com IA:</strong> produção de peças publicitárias utilizando ferramentas de inteligência artificial, com revisão e aprovação do cliente</li>
+    <li><strong>Automação de WhatsApp:</strong> configuração de fluxos automatizados de atendimento e qualificação de leads via WhatsApp Business</li>
+    <li><strong>Relatórios de desempenho:</strong> envio periódico de relatórios com métricas de desempenho das campanhas (impressões, cliques, conversões, custo por lead, ROI estimado)</li>
+    <li><strong>Consultoria estratégica:</strong> análise do funil de vendas e recomendações para melhoria de conversão</li>
+  </ul>
+  <p>Os serviços efetivamente prestados e suas condições específicas serão aqueles descritos na <strong>Proposta Comercial</strong> vigente, que prevalece sobre descrições genéricas em caso de divergência.</p>
+</section>
+
+<div class="legal-divider"></div>
+
+<section class="legal-section" id="sec-4">
+  <span class="section-num">Seção 04</span>
+  <h2>Obrigações do Cliente</h2>
+  <p>Para o adequado cumprimento dos serviços, o cliente compromete-se a:</p>
+  <ul>
+    <li>Fornecer todas as informações, acessos e materiais solicitados pela DentLeads em prazo razoável</li>
+    <li>Mantiver a verba de mídia devidamente provisionada e adimplente nas Plataformas</li>
+    <li>Responder a solicitações de aprovação de criativos em até <strong>48 horas úteis</strong>, sob pena de considerar-se aprovado tacitamente</li>
+    <li>Não alterar as configurações das campanhas diretamente nas Plataformas sem comunicação prévia à DentLeads</li>
+    <li>Manter seus dados cadastrais e informações de pagamento atualizados</li>
+    <li>Não veicular conteúdos que violem a legislação vigente, os Termos de Uso das Plataformas ou direitos de terceiros</li>
+    <li>Atender aos leads gerados dentro de prazo razoável para preservar a qualidade das conversões</li>
+  </ul>
+  <div class="legal-callout">
+    <div class="legal-callout-label"><i class="fa-solid fa-triangle-exclamation"></i>Atenção</div>
+    <p>O descumprimento das obrigações acima pode impactar diretamente os resultados das campanhas e isentar a DentLeads de responsabilidade sobre desempenho inferior ao esperado.</p>
+  </div>
+</section>
+
+<div class="legal-divider"></div>
+
+<section class="legal-section" id="sec-5">
+  <span class="section-num">Seção 05</span>
+  <h2>Garantia de Resultados</h2>
+  <p>A DentLeads oferece garantia de resultados no primeiro mês de veiculação ativa, conforme condições detalhadas no contrato de prestação de serviços e na Proposta Comercial.</p>
+  <p>A garantia está condicionada, cumulativamente, ao seguinte:</p>
+  <ul>
+    <li>Investimento mínimo em verba de anúncios conforme especificado na proposta</li>
+    <li>Veiculação contínua das campanhas pelo período mínimo de <strong>30 dias corridos</strong></li>
+    <li>Cumprimento pelo cliente das obrigações descritas na Seção 4</li>
+    <li>Inexistência de fatores externos que comprometam a entrega (bloqueio de conta nas Plataformas, mudanças abruptas de algoritmo, etc.)</li>
+  </ul>
+  <div class="legal-callout">
+    <div class="legal-callout-label"><i class="fa-solid fa-circle-info"></i>Importante</div>
+    <p>Resultados de tráfego pago são influenciados por variáveis de mercado, concorrência, sazonalidade, qualidade do atendimento ao lead e fatores alheios ao controle da DentLeads. A garantia cobre parâmetros objetivos definidos em proposta, não sendo promessa de faturamento ou número absoluto de pacientes agendados.</p>
+  </div>
+</section>
+
+<div class="legal-divider"></div>
+
+<section class="legal-section" id="sec-6">
+  <span class="section-num">Seção 06</span>
+  <h2>Pagamento</h2>
+  <h3>6.1 Forma e prazo</h3>
+  <p>Os valores devidos pela prestação dos serviços de gestão, as formas de pagamento e os prazos serão aqueles definidos na Proposta Comercial vigente. Salvo disposição em contrário, os pagamentos deverão ser realizados até o <strong>5º dia útil</strong> de cada mês.</p>
+  <h3>6.2 Verba de mídia</h3>
+  <p>Os valores referentes à verba de mídia são de responsabilidade exclusiva do cliente e não integram a remuneração da DentLeads. A DentLeads não se responsabiliza por débitos junto às Plataformas decorrentes de inadimplência do cliente.</p>
+  <h3>6.3 Inadimplência</h3>
+  <p>O atraso no pagamento acarretará:</p>
+  <ul>
+    <li>Mora de <strong>1% ao mês</strong> sobre o valor em débito, pro rata die</li>
+    <li>Suspensão dos serviços após <strong>5 dias úteis</strong> de inadimplência, sem prejuízo da cobrança dos valores devidos</li>
+    <li>Cobrança de custos de cobrança extrajudicial, quando aplicáveis</li>
+  </ul>
+</section>
+
+<div class="legal-divider"></div>
+
+<section class="legal-section" id="sec-7">
+  <span class="section-num">Seção 07</span>
+  <h2>Cancelamento e Rescisão</h2>
+  <h3>7.1 Cancelamento voluntário</h3>
+  <p>O cliente pode cancelar o serviço a qualquer momento, mediante aviso prévio de <strong>15 dias corridos</strong>, sem multa rescisória. Não exigimos contrato de fidelidade.</p>
+  <p>O reembolso de valores pagos antecipadamente, quando houver, será calculado <strong>proporcionalmente aos dias não utilizados</strong>, deduzidos os custos efetivamente incorridos pela DentLeads até a data do cancelamento.</p>
+  <h3>7.2 Rescisão por justa causa</h3>
+  <p>Qualquer das partes poderá rescindir o contrato imediatamente, sem aviso prévio, nas seguintes hipóteses:</p>
+  <ul>
+    <li>Inadimplência superior a 30 dias corridos</li>
+    <li>Violação reiterada das obrigações previstas nestes termos</li>
+    <li>Conduta que configure ato ilícito ou que prejudique a reputação da outra parte</li>
+    <li>Bloqueio permanente das contas nas Plataformas por violação de suas políticas por iniciativa do cliente</li>
+  </ul>
+  <h3>7.3 Efeitos da rescisão</h3>
+  <p>Rescindido o contrato, a DentLeads cessará imediatamente a gestão das campanhas e fornecerá ao cliente, em até <strong>10 dias úteis</strong>, todos os dados, relatórios e materiais produzidos durante a vigência do serviço. O acesso às contas nas Plataformas será mantido pelo cliente.</p>
+</section>
+
+<div class="legal-divider"></div>
+
+<section class="legal-section" id="sec-8">
+  <span class="section-num">Seção 08</span>
+  <h2>Propriedade Intelectual</h2>
+  <h3>8.1 Conteúdo do site</h3>
+  <p>Todo o conteúdo presente no site dentleads.com.br — incluindo, mas não se limitando a, textos, imagens, logotipos, design, layout, código-fonte, marcas e elementos gráficos — é propriedade exclusiva da DentLeads, protegido pela <strong>Lei nº 9.610/1998 (Lei de Direitos Autorais)</strong> e pela <strong>Lei nº 9.279/1996 (Lei de Propriedade Industrial)</strong>.</p>
+  <p>É vedada a reprodução, distribuição, modificação ou utilização comercial de qualquer conteúdo do site sem autorização prévia e expressa da DentLeads.</p>
+  <h3>8.2 Criativos e materiais produzidos</h3>
+  <p>Os criativos e materiais produzidos pela DentLeads no âmbito da prestação dos serviços serão cedidos ao cliente em regime de <strong>licença não exclusiva, limitada ao uso nas campanhas contratadas</strong>, durante a vigência do contrato e por até 90 dias após o encerramento.</p>
+  <p>A cessão em caráter exclusivo ou permanente dos criativos poderá ser negociada mediante condições específicas a serem acordadas na Proposta Comercial.</p>
+  <h3>8.3 Marcas de terceiros</h3>
+  <p>As marcas Meta, Facebook, Instagram, Google, WhatsApp e demais marcas de terceiros mencionadas nestes termos pertencem exclusivamente aos seus respectivos proprietários e são utilizadas apenas para fins de identificação e referência.</p>
+</section>
+
+<div class="legal-divider"></div>
+
+<section class="legal-section" id="sec-9">
+  <span class="section-num">Seção 09</span>
+  <h2>Confidencialidade</h2>
+  <p>As partes comprometem-se a manter em sigilo todas as informações confidenciais recebidas da outra parte no âmbito da relação contratual, incluindo, mas não se limitando a:</p>
+  <ul>
+    <li>Estratégias de campanha, métricas de desempenho e dados de custo</li>
+    <li>Informações comerciais, financeiras e operacionais</li>
+    <li>Listas de leads e dados de clientes</li>
+    <li>Tecnologias, metodologias e processos internos</li>
+  </ul>
+  <p>O dever de confidencialidade persiste por <strong>2 anos</strong> após o encerramento do contrato, independentemente do motivo da rescisão.</p>
+  <p>A obrigação de confidencialidade não se aplica a informações que: (i) sejam ou se tornem públicas por motivo alheio à parte receptora; (ii) já fossem de conhecimento da parte receptora antes do recebimento; (iii) sejam obtidas de fonte independente e lícita; ou (iv) sejam reveladas por exigência legal ou judicial.</p>
+</section>
+
+<div class="legal-divider"></div>
+
+<section class="legal-section" id="sec-10">
+  <span class="section-num">Seção 10</span>
+  <h2>Limitação de Responsabilidade</h2>
+  <p>A DentLeads emprega os melhores esforços e técnicas disponíveis para a obtenção de resultados. No entanto, a responsabilidade da DentLeads está limitada ao seguinte:</p>
+  <ul>
+    <li>A DentLeads <strong>não garante</strong> resultados específicos de faturamento, agendamentos ou conversões que dependam do atendimento do cliente ao lead gerado</li>
+    <li>A DentLeads não se responsabiliza por resultados fora de seu controle direto, incluindo, mas não se limitando a: alterações nos algoritmos das Plataformas, indisponibilidade temporária ou permanente de serviços de terceiros, variações de mercado, ações da concorrência e mudanças na regulamentação publicitária</li>
+    <li>A responsabilidade total da DentLeads por eventuais danos diretos será limitada ao <strong>valor total pago pelo cliente nos últimos 3 meses</strong> de vigência do contrato</li>
+    <li>A DentLeads não se responsabiliza por danos indiretos, incidentais, especiais ou lucros cessantes</li>
+  </ul>
+</section>
+
+<div class="legal-divider"></div>
+
+<section class="legal-section" id="sec-11">
+  <span class="section-num">Seção 11</span>
+  <h2>Caso Fortuito e Força Maior</h2>
+  <p>Nenhuma das partes será responsável pelo descumprimento de obrigações decorrentes de eventos de caso fortuito ou força maior, conforme definido no <strong>art. 393 do Código Civil brasileiro</strong>, incluindo, mas não se limitando a:</p>
+  <ul>
+    <li>Interrupções, falhas ou indisponibilidade de serviços de telecomunicações, internet ou infraestrutura de nuvem</li>
+    <li>Atos de governo, alterações regulatórias ou decisões judiciais que impeçam ou restrinjam a prestação dos serviços</li>
+    <li>Greves, lockouts, pandemias, desastres naturais ou outros eventos de natureza semelhante</li>
+    <li>Bloqueio ou suspensão de contas nas Plataformas por decisões unilaterais destas</li>
+  </ul>
+  <p>A parte afetada deverá notificar a outra parte em até <strong>48 horas</strong> da ocorrência do evento e adotar as medidas razoáveis para mitigar seus efeitos. Se o evento perdurar por mais de <strong>30 dias corridos</strong>, qualquer das partes poderá rescindir o contrato sem responsabilidade.</p>
+</section>
+
+<div class="legal-divider"></div>
+
+<section class="legal-section" id="sec-12">
+  <span class="section-num">Seção 12</span>
+  <h2>Lei Aplicável e Foro</h2>
+  <p>Estes Termos de Uso são regidos pela <strong>legislação brasileira</strong>, com especial destaque para o Código Civil (Lei nº 10.406/2002), a Lei de Direitos Autorais (Lei nº 9.610/1998) e a Lei Geral de Proteção de Dados (Lei nº 13.709/2018).</p>
+  <p>Para a resolução de quaisquer controvérsias originadas destes termos, as partes elegem o <strong>foro da comarca do domicílio da DentLeads</strong>, com renúncia expressa a qualquer outro, por mais privilegiado que seja.</p>
+  <p>Antes de intentar qualquer medida judicial, as partes comprometem-se a tentar a resolução amigável da controvérsia, por meio de comunicação direta, por um prazo de <strong>15 dias úteis</strong>.</p>
+</section>
+
+<div class="legal-divider"></div>
+
+<section class="legal-section" id="sec-13">
+  <span class="section-num">Seção 13</span>
+  <h2>Disposições Gerais</h2>
+  <ul>
+    <li><strong>Alterações:</strong> a DentLeads poderá alterar estes Termos a qualquer momento, publicando a versão atualizada no site. Alterações substanciais serão comunicadas aos clientes ativos por e-mail com antecedência mínima de 15 dias</li>
+    <li><strong>Renúncia:</strong> o fato de qualquer das partes não exercer um direito ou não exigir o cumprimento de uma obrigação não constituirá renúncia a tal direito ou obrigação</li>
+    <li><strong>Invalidade parcial:</strong> se qualquer disposição destes termos for considerada inválida ou inexequível, as demais disposições permanecerão em pleno vigor e efeito</li>
+    <li><strong>Cessão:</strong> o cliente não poderá ceder ou transferir seus direitos e obrigações nestes termos sem o consentimento prévio e expresso da DentLeads</li>
+    <li><strong>Acordo integral:</strong> estes Termos de Uso, em conjunto com a Proposta Comercial vigente e a Política de Privacidade, constituem o acordo integral entre as partes em relação ao objeto aqui tratado, substituindo quaisquer entendimentos anteriores</li>
+    <li><strong>Tolerância:</strong> eventual tolerância no cumprimento de obrigações não alterará seu teor nem constituirá novo acordo</li>
+  </ul>
+</section>
+
+<div class="legal-divider"></div>
+
+<section class="legal-section" id="sec-14">
+  <span class="section-num">Seção 14</span>
+  <h2>Contato</h2>
+  <p>Para dúvidas, esclarecimentos ou solicitações relacionadas a estes Termos de Uso:</p>
+  <ul>
+    <li><strong>E-mail:</strong> <a href="mailto:contato@dentleads.com.br">contato@dentleads.com.br</a></li>
+    <li><strong>WhatsApp:</strong> <a href="https://wa.me/5524981403403">(24) 98140-3403</a></li>
+  </ul>
+</section>
+
+</div>
+</div>
+
+<footer class="footer">
+  <div class="footer-links">
+    <a href="politica-de-privacidade.html">Privacidade</a>
+    <a href="termos-de-uso.html">Termos</a>
+  </div>
+  <p class="footer-copy">© 2026 DentLeads · Todos os direitos reservados</p>
+</footer>
+
+<button class="scroll-top" aria-label="Voltar ao topo"><i class="fa-solid fa-chevron-up"></i></button>
+
+<script>
+var pFill=document.querySelector('.progress-fill');
+window.addEventListener('scroll',function(){
+  var s=document.documentElement.scrollTop,h=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+  pFill.style.width=(s/h*100)+'%';
+},{passive:true});
+
+var tocLinks=document.querySelectorAll('.toc-link');
+var sections=document.querySelectorAll('.legal-section[id]');
+var obs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){
+      tocLinks.forEach(function(l){l.classList.remove('active')});
+      document.querySelectorAll('.toc-link[href="#'+e.target.id+'"]').forEach(function(l){l.classList.add('active')});
+    }
+  });
+},{rootMargin:'-20% 0px -65% 0px',threshold:0});
+sections.forEach(function(s){obs.observe(s)});
+
+var tocToggle=document.querySelector('.toc-toggle');
+var mobileWrap=document.querySelector('.mobile-toc-wrap');
+if(tocToggle){
+  tocToggle.addEventListener('click',function(){
+    tocToggle.classList.toggle('open');
+    mobileWrap.classList.toggle('open');
+  });
+  mobileWrap.querySelectorAll('.toc-link').forEach(function(l){
+    l.addEventListener('click',function(){
+      tocToggle.classList.remove('open');
+      mobileWrap.classList.remove('open');
+    });
+  });
+}
+
+var scrollBtn=document.querySelector('.scroll-top');
+window.addEventListener('scroll',function(){
+  if(window.scrollY>600)scrollBtn.classList.add('visible');
+  else scrollBtn.classList.remove('visible');
+},{passive:true});
+scrollBtn.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});
+</script>
+</body>
+</html>
