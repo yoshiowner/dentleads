@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Política de Privacidade — DentLeads</title>
+<meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#D4AF37">
+<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/yoshiowner/dentleads-images/main/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Syne:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --void:#030B10;--ink:#071118;--surface:#11222E;--gold:#D4AF37;--gold-bright:#F5D76E;--gold-deep:#A67C00;
+  --gold-line:rgba(212,175,55,0.35);--gold-faint:rgba(212,175,55,0.08);--gold-glow:rgba(212,175,55,0.15);
+  --white:#FFF;--muted:rgba(237,242,240,0.6);--muted-strong:rgba(237,242,240,0.78);
+  --grad-gold:linear-gradient(135deg,var(--gold-deep),var(--gold),var(--gold-bright))
+}
+html{scroll-behavior:smooth}
+body{min-height:100vh;overflow-x:hidden;font-family:'Plus Jakarta Sans',sans-serif;background:var(--ink);color:var(--white);position:relative}
+body::before{content:'';position:fixed;top:-250px;right:-250px;width:700px;height:700px;background:radial-gradient(circle,var(--gold-glow),transparent 70%);pointer-events:none;z-index:0}
+::-webkit-scrollbar{width:2px}::-webkit-scrollbar-track{background:var(--void)}::-webkit-scrollbar-thumb{background:var(--grad-gold);border-radius:1px}
+
+.progress-track{position:fixed;top:0;left:0;width:100%;height:2px;z-index:1001;background:transparent}
+.progress-fill{height:100%;width:0%;background:var(--grad-gold);transition:width .08s linear;border-radius:0 1px 1px 0}
+
+.nav{position:sticky;top:0;z-index:500;background:rgba(7,17,24,.95);backdrop-filter:blur(40px);border-bottom:1px solid var(--gold-line)}
+.nav-top{display:flex;align-items:center;justify-content:space-between;max-width:1140px;margin:0 auto;padding:0 52px;height:64px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo-mark{width:36px;height:36px;flex-shrink:0}
+.logo-mark img{width:100%;height:100%;object-fit:contain;padding:3px}
+.logo-name{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700;color:var(--white);letter-spacing:.3px;line-height:1}.logo-name em{color:var(--gold);font-style:normal}
+.nav-back{display:flex;align-items:center;gap:6px;color:var(--muted);text-decoration:none;font-family:'Syne',sans-serif;font-size:9.5px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;transition:color .2s}.nav-back:hover{color:var(--gold)}
+.nav-back i{font-size:10px}
+
+.legal-layout{display:flex;max-width:1140px;margin:0 auto;gap:64px;padding:56px 52px 80px;position:relative;z-index:1}
+
+.legal-toc{position:sticky;top:96px;width:210px;flex-shrink:0;align-self:flex-start;max-height:calc(100vh - 120px);overflow-y:auto;padding-right:8px}
+.legal-toc::-webkit-scrollbar{width:0}
+.toc-title{font-family:'Syne',sans-serif;font-size:8.5px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--gold-line)}
+.toc-list{list-style:none;padding:0}
+.toc-item{margin-bottom:4px}
+.toc-link{display:flex;align-items:baseline;gap:8px;color:var(--muted);text-decoration:none;font-size:11px;line-height:1.55;padding:5px 0 5px 14px;border-left:2px solid transparent;transition:all .2s}
+.toc-link:hover{color:var(--muted-strong)}
+.toc-link.active{color:var(--gold-bright);border-left-color:var(--gold)}
+.toc-num{font-family:'Syne',sans-serif;font-size:8.5px;font-weight:700;flex-shrink:0;min-width:20px;color:var(--gold-deep);transition:color .2s}
+.toc-link.active .toc-num{color:var(--gold)}
+
+.toc-toggle{display:none;width:100%;padding:14px 18px;background:var(--surface);border:1px solid var(--gold-line);border-radius:8px;color:var(--white);font-family:'Syne',sans-serif;font-size:10px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;cursor:pointer;margin-bottom:20px;justify-content:space-between;align-items:center;transition:border-color .2s}
+.toc-toggle:hover{border-color:var(--gold)}
+.toc-toggle i{font-size:10px;transition:transform .3s}
+.toc-toggle.open i{transform:rotate(180deg)}
+.toc-toggle.open{border-color:var(--gold);border-radius:8px 8px 0 0}
+.mobile-toc-wrap{display:none}
+.mobile-toc-wrap.open{display:block;background:var(--surface);border:1px solid var(--gold-line);border-top:none;border-radius:0 0 8px 8px;padding:16px 18px 20px;margin-bottom:24px}
+.mobile-toc-wrap .toc-link{padding:8px 0 8px 14px;font-size:12px}
+
+.legal-content{flex:1;min-width:0}
+.legal-header{margin-bottom:40px}
+.legal-content h1{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,4vw,48px);font-weight:700;color:var(--white);margin-bottom:10px;line-height:1.05}
+.legal-meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:14px}
+.meta-badge{display:inline-flex;align-items:center;gap:7px;padding:6px 14px;background:var(--gold-faint);border:1px solid var(--gold-line);border-radius:100px;font-family:'Syne',sans-serif;font-size:9px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:var(--gold);line-height:1}
+.meta-badge i{font-size:8.5px;opacity:.8}
+.meta-badge--date{color:var(--muted-strong);background:rgba(237,242,240,0.04);border-color:rgba(237,242,240,0.1)}
+.meta-badge--date i{color:var(--muted);opacity:.6}
+.legal-header-line{width:48px;height:2px;background:var(--grad-gold);border-radius:1px;margin-top:20px}
+
+.legal-section{margin-bottom:0}
+.legal-section[id]{scroll-margin-top:96px}
+.section-num{font-family:'Syne',sans-serif;font-size:8.5px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:6px;display:block}
+.legal-content h2{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;color:var(--gold-bright);margin:0 0 14px}
+.legal-content p{font-size:13px;color:var(--muted);line-height:1.88;margin-bottom:14px}
+.legal-content p.lead{color:var(--muted-strong);font-size:13.5px}
+.legal-content ul,.legal-content ol{padding-left:20px;margin-bottom:16px}
+.legal-content li{font-size:13px;color:var(--muted);line-height:1.88;margin-bottom:6px;padding-left:4px}
+.legal-content li::marker{color:var(--gold-deep)}
+.legal-content a{color:var(--gold);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px;transition:color .2s}.legal-content a:hover{color:var(--gold-bright)}
+.legal-content strong{color:var(--muted-strong);font-weight:600}
+.legal-content em{color:var(--muted-strong);font-style:italic}
+
+.legal-callout{background:var(--gold-faint);border-left:3px solid var(--gold);padding:18px 22px;margin:18px 0;border-radius:0 8px 8px 0}
+.legal-callout-label{font-family:'Syne',sans-serif;font-size:8.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.legal-callout-label i{font-size:10px}
+.legal-callout p{margin-bottom:8px;color:var(--muted-strong)}
+.legal-callout p:last-child{margin-bottom:0}
+
+.legal-divider{height:1px;background:var(--gold-line);margin:36px 0;opacity:.4}
+
+.legal-content h3{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:600;color:rgba(245,215,110,0.7);margin:24px 0 10px}
+
+.footer{background:var(--void);border-top:1px solid var(--gold-line);padding:24px 0;text-align:center;position:relative;z-index:1}
+.footer-copy{font-size:9px;color:rgba(255,255,255,.14);max-width:1140px;margin:0 auto;padding:0 52px;letter-spacing:.3px}
+.footer-links{display:flex;justify-content:center;gap:24px;margin-bottom:12px}
+.footer-links a{font-size:9px;color:rgba(255,255,255,.25);text-decoration:none;font-family:'Syne',sans-serif;letter-spacing:1px;text-transform:uppercase;transition:color .2s}
+.footer-links a:hover{color:var(--gold)}
+
+.scroll-top{position:fixed;bottom:28px;right:28px;width:42px;height:42px;border-radius:50%;background:var(--surface);border:1px solid var(--gold-line);color:var(--gold);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;visibility:hidden;transition:all .3s;z-index:400;font-size:13px}
+.scroll-top.visible{opacity:1;visibility:visible}
+.scroll-top:hover{background:var(--gold);color:var(--void);border-color:var(--gold)}
+
+@media(max-width:960px){
+  .legal-toc{display:none}
+  .toc-toggle{display:flex}
+  .legal-layout{flex-direction:column;gap:0;padding:40px 28px 64px}
+}
+@media(max-width:640px){
+  .nav-top{padding:0 20px}
+  .legal-layout{padding:32px 20px 56px}
+  .footer-copy{padding:0 20px}
+}
+</style>
+</head>
+<body>
+
+<div class="progress-track"><div class="progress-fill"></div></div>
+
+<nav class="nav"><div class="nav-top">
+<a href="index.html" class="logo"><div class="logo-mark"><img src="https://raw.githubusercontent.com/yoshiowner/dentleads-images/main/logo.png" alt="DentLeads logo" width="36" height="36"></div><span class="logo-name">Dent<em>Leads</em></span></a>
+<a href="index.html" class="nav-back"><i class="fa-solid fa-arrow-left"></i>Voltar ao site</a>
+</div></nav>
+
+<div class="legal-layout">
+
+<aside class="legal-toc">
+  <div class="toc-title">Conteúdo</div>
+  <ul class="toc-list">
+    <li class="toc-item"><a href="#sec-1" class="toc-link"><span class="toc-num">01</span>Identificação do Controlador</a></li>
+    <li class="toc-item"><a href="#sec-2" class="toc-link"><span class="toc-num">02</span>Dados Coletados</a></li>
+    <li class="toc-item"><a href="#sec-3" class="toc-link"><span class="toc-num">03</span>Bases Legais</a></li>
+    <li class="toc-item"><a href="#sec-4" class="toc-link"><span class="toc-num">04</span>Finalidades</a></li>
+    <li class="toc-item"><a href="#sec-5" class="toc-link"><span class="toc-num">05</span>Compartilhamento</a></li>
+    <li class="toc-item"><a href="#sec-6" class="toc-link"><span class="toc-num">06</span>Armazenamento e Segurança</a></li>
+    <li class="toc-item"><a href="#sec-7" class="toc-link"><span class="toc-num">07</span>Direitos do Titular</a></li>
+    <li class="toc-item"><a href="#sec-8" class="toc-link"><span class="toc-num">08</span>Cookies</a></li>
+    <li class="toc-item"><a href="#sec-9" class="toc-link"><span class="toc-num">09</span>Transferência Internacional</a></li>
+    <li class="toc-item"><a href="#sec-10" class="toc-link"><span class="toc-num">10</span>Menores de Idade</a></li>
+    <li class="toc-item"><a href="#sec-11" class="toc-link"><span class="toc-num">11</span>Alterações nesta Política</a></li>
+    <li class="toc-item"><a href="#sec-12" class="toc-link"><span class="toc-num">12</span>Contato</a></li>
+  </ul>
+</aside>
+
+<div class="legal-content">
+
+<header class="legal-header">
+  <h1>Política de Privacidade</h1>
+  <div class="legal-meta">
+    <span class="meta-badge meta-badge--date"><i class="fa-regular fa-calendar"></i>Última atualização: Maio de 2026</span>
+  </div>
+  <div class="legal-header-line"></div>
+</header>
+
+<button class="toc-toggle" aria-label="Abrir sumário"><span>Sumário</span><i class="fa-solid fa-chevron-down"></i></button>
+<div class="mobile-toc-wrap">
+  <ul class="toc-list">
+    <li class="toc-item"><a href="#sec-1" class="toc-link"><span class="toc-num">01</span>Identificação do Controlador</a></li>
+    <li class="toc-item"><a href="#sec-2" class="toc-link"><span class="toc-num">02</span>Dados Coletados</a></li>
+    <li class="toc-item"><a href="#sec-3" class="toc-link"><span class="toc-num">03</span>Bases Legais</a></li>
+    <li class="toc-item"><a href="#sec-4" class="toc-link"><span class="toc-num">04</span>Finalidades</a></li>
+    <li class="toc-item"><a href="#sec-5" class="toc-link"><span class="toc-num">05</span>Compartilhamento</a></li>
+    <li class="toc-item"><a href="#sec-6" class="toc-link"><span class="toc-num">06</span>Armazenamento e Segurança</a></li>
+    <li class="toc-item"><a href="#sec-7" class="toc-link"><span class="toc-num">07</span>Direitos do Titular</a></li>
+    <li class="toc-item"><a href="#sec-8" class="toc-link"><span class="toc-num">08</span>Cookies</a></li>
+    <li class="toc-item"><a href="#sec-9" class="toc-link"><span class="toc-num">09</span>Transferência Internacional</a></li>
+    <li class="toc-item"><a href="#sec-10" class="toc-link"><span class="toc-num">10</span>Menores de Idade</a></li>
+    <li class="toc-item"><a href="#sec-11" class="toc-link"><span class="toc-num">11</span>Alterações nesta Política</a></li>
+    <li class="toc-item"><a href="#sec-12" class="toc-link"><span class="toc-num">12</span>Contato</a></li>
+  </ul>
+</div>
+
+<section class="legal-section" id="sec-1">
+  <span class="section-num">Seção 01</span>
+  <h2>Identificação do Controlador</h2>
+  <p class="lead">A presente Política de Privacidade descreve como a <strong>DentLeads</strong> coleta, utiliza, armazena e protege seus dados pessoais, em conformidade com a Lei Geral de Proteção de Dados Pessoais — <strong>Lei nº 13.709/2018 (LGPD)</strong>.</p>
+  <p>Para os fins desta política, o controlador dos seus dados pessoais é:</p>
+  <ul>
+    <li><strong>Controlador dos dados pessoais:</strong> Renan Maghamez Mendes, inscrito no CNPJ sob o nº 66.330.423/0001-88</li>
+    <li><strong>E-mail para proteção de dados:</strong> <a href="mailto:contato@dentleads.com.br">contato@dentleads.com.br</a></li>
+    <li><strong>WhatsApp:</strong> <a href="https://wa.me/5524981403403">(24) 98140-3403</a></li>
+  </ul>
+</section>
+
+<div class="legal-divider"></div>
+
+<section class="legal-section" id="sec-2">
+  <span class="section-num">Seção 02</span>
+  <h2>Dados Coletados</h2>
+  <h3>2.1 Dados fornecidos diretamente</h3>
+  <p>Coletamos informações que você nos fornece voluntariamente ao interagir com nossos canais:</p>
+  <ul>
+    <li>Nome completo e cargo/função</li>
+    <li>Número de telefone (incluindo WhatsApp)</li>
+    <li>Endereço de e-mail</li>
+    <li>Nome da clínica odontológica e CNPJ (quando informado)</li>
+    <li>Informações sobre necessidades e objetivos da clínica</li>
+    <li>Mensagens enviadas por formulários de contato ou chat</li>
+  </ul>
+  <h3>2.2 Dados coletados automaticamente</h3>
+  <p>Quando você acessa nosso site, registramos automaticamente:</p>
+  <ul>
+    <li>Endereço IP e localização geográfica aproximada</li>
+    <li>Tipo de navegador, sistema operacional e dispositivo</li>
+    <li>Páginas visitadas, tempo de permanência e fluxo de navegação</li>
+    <li>Fonte de tráfego (orgânico, pago, referência direta)</li>
+  </ul>
+  <div class="legal-callout">
+    <div class="legal-callout-label"><i class="fa-solid fa-shield-halved"></i>Dados Sensíveis</div>
+    <p>Não coletamos intencionalmente dados sensíveis na acepção do <strong>art. 11 da LGPD</strong> (origem racial ou étnica, convicções religiosas, dados de saúde, etc.). Caso informações dessa natureza sejam enviadas espontaneamente por você via WhatsApp ou formulário, elas serão tratadas com sigilo e excluídas em até 24 horas.</p>
+  </div>
+</section>
+
+<div class="legal-divider"></div>
+
+<section class="legal-section" id="sec-3">
+  <span class="section-num">Seção 03</span>
+  <h2>Bases Legais para o Tratamento</h2>
+  <p>O tratamento dos seus dados pessoais é realizado com amparo nas seguintes bases legais previstas no <strong>art. 7º da LGPD</strong>:</p>
+  <ul>
+    <li><strong>Consentimento (art. 7º, I):</strong> quando você preenche um formulário ou inicia uma conversa no WhatsApp, autorizando o contato comercial</li>
+    <li><strong>Execução de contrato (art. 7º, V):</strong> para a prestação dos serviços de gestão de tráfego contratados</li>
+    <li><strong>Legítimo interesse (art. 7º, IX):</strong> para melhorar nossos serviços, personalizar comunicações e realizar análises de desempenho — sempre respeitando seus direitos e expectativas como titular</li>
+    <li><strong>Cumprimento de obrigação legal (art. 7º, II):</strong> para atendimento de obrigações fiscais, contábeis e regulatórias</li>
+  </ul>
+</section>
+
+<div class="legal-divider"></div>
+
+<section class="legal-section" id="sec-4">
+  <span class="section-num">Seção 04</span>
+  <h2>Finalidades do Tratamento</h2>
+  <p>Utilizamos seus dados exclusivamente para as seguintes finalidades:</p>
+  <ul>
+    <li>Realizar contato inicial para agendamento de diagnóstico gratuito de tráfego</li>
+    <li>Enviar propostas comerciais personalizadas conforme o perfil da clínica</li>
+    <li>Prestar os serviços de gestão de tráfego pago contratados</li>
+    <li>Gerar e enviar relatórios semanais e mensais de desempenho das campanhas</li>
+    <li>Comunicar atualizações relevantes sobre os serviços contratados</li>
+    <li>Realizar pesquisas de satisfação pós-atendimento</li>
+    <li>Cumprir obrigações legais e regulatórias</li>
+  </ul>
+  <p><strong>Não utilizamos seus dados para finalidades não previstas nesta política sem seu consentimento prévio e expresso.</strong></p>
+</section>
+
+<div class="legal-divider"></div>
+
+<section class="legal-section" id="sec-5">
+  <span class="section-num">Seção 05</span>
+  <h2>Compartilhamento de Dados</h2>
+  <p><strong>Seus dados não são vendidos, alugados ou comercializados.</strong> O compartilhamento ocorre apenas nas seguintes hipóteses:</p>
+  <ul>
+    <li><strong>Meta Platforms (Facebook/Instagram):</strong> para a veiculação de anúncios e configuração de pixels de rastreamento, conforme necessário para a prestação dos serviços</li>
+    <li><strong>Provedores de infraestrutura:</strong> serviços de hospedagem e armazenamento em nuvem com certificações de segurança</li>
+    <li><strong>Ferramentas de análise:</strong> plataformas de analytics para métricas de navegação e desempenho</li>
+    <li><strong>Autoridades públicas:</strong> quando exigido por lei, decisão judicial ou requisição de autoridade competente</li>
+  </ul>
+  <p>Todos os terceiros com quem compartilhamos dados estão obrigados contratualmente a observarem níveis de proteção compatíveis com a LGPD.</p>
+</section>
+
+<div class="legal-divider"></div>
+
+<section class="legal-section" id="sec-6">
+  <span class="section-num">Seção 06</span>
+  <h2>Armazenamento e Segurança</h2>
+  <h3>6.1 Medidas técnicas</h3>
+  <p>Adotamos as seguintes medidas de segurança para proteger seus dados:</p>
+  <ul>
+    <li>Criptografia AES-256 para dados em repouso</li>
+    <li>Protocolo SSL/TLS para dados em trânsito</li>
+    <li>Controle de acesso baseado em função (princípio do menor privilégio)</li>
+    <li>Backups automáticos com redundância geográfica</li>
+    <li>Monitoramento contínuo de acessos e atividades suspeitas</li>
+  </ul>
+  <h3>6.2 Período de retenção</h3>
+  <p>Seus dados pessoais são mantidos apenas pelo período necessário para cumprir as finalidades descritas nesta política, respeitando os seguintes prazos:</p>
+  <ul>
+    <li><strong>Dados de prospectos (não-clientes):</strong> excluídos em até 180 dias após o último contato, salvo se houver consentimento para permanecer em nossa base</li>
+    <li><strong>Dados de clientes ativos:</strong> mantidos durante a vigência do contrato e por até 5 anos após o encerramento, para fins fiscais e legais</li>
+    <li><strong>Dados de navegação:</strong> anonimizados em até 30 dias</li>
+  </ul>
+</section>
+
+<div class="legal-divider"></div>
+
+<section class="legal-section" id="sec-7">
+  <span class="section-num">Seção 07</span>
+  <h2>Direitos do Titular</h2>
+  <p>Conforme os <strong>arts. 17 a 22 da LGPD</strong>, você possui os seguintes direitos, que podem ser exercidos a qualquer momento:</p>
+  <ul>
+    <li><strong>Confirmação e acesso:</strong> confirmar a existência de tratamento e acessar seus dados pessoais</li>
+    <li><strong>Correção:</strong> solicitar a correção de dados incompletos, inexatos ou desatualizados</li>
+    <li><strong>Anonimização, bloqueio ou eliminação:</strong> solicitar o tratamento adequado de dados desnecessários ou excessivos</li>
+    <li><strong>Portabilidade:</strong> solicitar a transferência dos seus dados a outro fornecedor de serviço</li>
+    <li><strong>Eliminação:</strong> solicitar a exclusão de dados tratados com base no consentimento</li>
+    <li><strong>Informação sobre compartilhamento:</strong> saber com quais entidades os dados foram compartilhados</li>
+    <li><strong>Revogação do consentimento:</strong> revogar seu consentimento a qualquer momento, sem comprometer a licitude do tratamento anterior</li>
+  </ul>
+  <div class="legal-callout">
+    <div class="legal-callout-label"><i class="fa-solid fa-scale-balanced"></i>Como exercer seus direitos</div>
+    <p>Envie sua solicitação para <a href="mailto:contato@dentleads.com.br">contato@dentleads.com.br</a> com o assunto <strong>"Exercício de Direitos — LGPD"</strong>. A resposta será fornecida em até <strong>15 dias úteis</strong>, conforme determina o <strong>art. 18, § 5º da LGPD</strong>. Não serão cobradas taxas pelo exercício de direitos.</p>
+  </div>
+</section>
+
+<div class="legal-divider"></div>
+
+<section class="legal-section" id="sec-8">
+  <span class="section-num">Seção 08</span>
+  <h2>Cookies e Tecnologias Similares</h2>
+  <p>Utilizamos as seguintes categorias de cookies:</p>
+  <ul>
+    <li><strong>Cookies essenciais:</strong> necessários para o funcionamento básico do site (formulários, sessões). Não podem ser desabilitados sem comprometer a navegação</li>
+    <li><strong>Cookies de análise:</strong> utilizados para entender como os visitantes interagem com o site (páginas visitadas, taxa de rejeição). Dados anonimizados sempre que possível</li>
+    <li><strong>Cookies de publicidade (Meta Pixel):</strong> utilizados para mensurar a eficácia de anúncios, gerar públicos semelhantes e atribuir conversões. Esses cookies são configurados pela Meta Platforms</li>
+  </ul>
+  <p>Você pode gerenciar ou desabilitar cookies nas configurações do seu navegador. A desabilitação de cookies de análise ou publicidade não afetará a funcionalidade do site, mas pode reduzir a personalização da experiência.</p>
+</section>
+
+<div class="legal-divider"></div>
+
+<section class="legal-section" id="sec-9">
+  <span class="section-num">Seção 09</span>
+  <h2>Transferência Internacional de Dados</h2>
+  <p>Alguns de nossos serviços envolvem a transferência de dados para servidores localizados fora do Brasil, notadamente para os <strong>Estados Unidos</strong>, onde operam plataformas como a Meta (Facebook/Instagram Ads).</p>
+  <p>Tais transferências são realizadas com amparo no <strong>art. 33 da LGPD</strong>, observando as seguintes salvaguardas:</p>
+  <ul>
+    <li>Cláusulas contratuais padrão aprovadas por autoridades de proteção de dados</li>
+    <li>Adesão da empresa receptora a princípios de privacidade reconhecidos internacionalmente</li>
+    <li>Verificação do nível de proteção adequado do país destinatário</li>
+  </ul>
+</section>
+
+<div class="legal-divider"></div>
+
+<section class="legal-section" id="sec-10">
+  <span class="section-num">Seção 10</span>
+  <h2>Menores de Idade</h2>
+  <p>Nossos serviços são direcionados exclusivamente a profissionais e empresas do segmento odontológico, não sendo voltados a menores de 18 anos. Não coletamos intencionalmente dados de menores.</p>
+  <p>Caso tomemos conhecimento de que dados de um menor foram coletados inadvertidamente, providenciaremos sua exclusão imediata, conforme determina o <strong>art. 14 da LGPD</strong>.</p>
+</section>
+
+<div class="legal-divider"></div>
+
+<section class="legal-section" id="sec-11">
+  <span class="section-num">Seção 11</span>
+  <h2>Alterações nesta Política</h2>
+  <p>Reservamo-nos o direito de atualizar esta Política de Privacidade a qualquer momento, para refletir mudanças em nossas práticas, nos serviços oferecidos ou em exigências legais.</p>
+  <p>Alterações substanciais serão comunicadas por:</p>
+  <ul>
+    <li>Aviso no site com a nova data de "Última atualização"</li>
+    <li>Comunicação direta por e-mail para clientes ativos</li>
+  </ul>
+  <p>Recomendamos que você revise esta política periodicamente. O uso continuado de nossos serviços após alterações constitui aceitação das mudanças.</p>
+</section>
+
+<div class="legal-divider"></div>
+
+<section class="legal-section" id="sec-12">
+  <span class="section-num">Seção 12</span>
+  <h2>Contato</h2>
+  <p>Para dúvidas, solicitações ou reclamações relacionadas a esta Política de Privacidade ou ao tratamento de seus dados pessoais:</p>
+  <ul>
+    <li><strong>E-mail:</strong> <a href="mailto:contato@dentleads.com.br">contato@dentleads.com.br</a></li>
+    <li><strong>WhatsApp:</strong> <a href="https://wa.me/5524981403403">(24) 98140-3403</a></li>
+  </ul>
+  <p>Se entender que seus direitos não foram devidamente atendidos, você poderá apresentar reclamação perante a <strong>Autoridade Nacional de Proteção de Dados (ANPD)</strong> — <a href="https://www.gov.br/anpd" target="_blank" rel="noopener">www.gov.br/anpd</a>.</p>
+</section>
+
+</div>
+</div>
+
+<footer class="footer">
+  <div class="footer-links">
+    <a href="politica-de-privacidade.html">Privacidade</a>
+    <a href="termos-de-uso.html">Termos</a>
+  </div>
+  <p class="footer-copy">© 2026 DentLeads · Todos os direitos reservados</p>
+</footer>
+
+<button class="scroll-top" aria-label="Voltar ao topo"><i class="fa-solid fa-chevron-up"></i></button>
+
+<script>
+var pFill=document.querySelector('.progress-fill');
+window.addEventListener('scroll',function(){
+  var s=document.documentElement.scrollTop,h=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+  pFill.style.width=(s/h*100)+'%';
+},{passive:true});
+
+var tocLinks=document.querySelectorAll('.toc-link');
+var sections=document.querySelectorAll('.legal-section[id]');
+var obs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){
+      tocLinks.forEach(function(l){l.classList.remove('active')});
+      document.querySelectorAll('.toc-link[href="#'+e.target.id+'"]').forEach(function(l){l.classList.add('active')});
+    }
+  });
+},{rootMargin:'-20% 0px -65% 0px',threshold:0});
+sections.forEach(function(s){obs.observe(s)});
+
+var tocToggle=document.querySelector('.toc-toggle');
+var mobileWrap=document.querySelector('.mobile-toc-wrap');
+if(tocToggle){
+  tocToggle.addEventListener('click',function(){
+    tocToggle.classList.toggle('open');
+    mobileWrap.classList.toggle('open');
+  });
+  mobileWrap.querySelectorAll('.toc-link').forEach(function(l){
+    l.addEventListener('click',function(){
+      tocToggle.classList.remove('open');
+      mobileWrap.classList.remove('open');
+    });
+  });
+}
+
+var scrollBtn=document.querySelector('.scroll-top');
+window.addEventListener('scroll',function(){
+  if(window.scrollY>600)scrollBtn.classList.add('visible');
+  else scrollBtn.classList.remove('visible');
+},{passive:true});
+scrollBtn.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});
+</script>
+</body>
+</html>
