@@ -3295,14 +3295,17 @@ document.getElementById('yr') && (document.getElementById('yr').textContent=new 
     markDismissed();
   }
 
+  var isTouchDevice = ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
   var hasShown = false;
-  document.addEventListener('mouseleave', function(e){
-    if(hasShown) return;
-    if(e.clientY < 10 && e.relatedTarget === null){
-      hasShown = true;
-      openPopup();
-    }
-  });
+  if(!isTouchDevice){
+    document.addEventListener('mouseleave', function(e){
+      if(hasShown) return;
+      if(e.clientY < 10 && e.relatedTarget === null){
+        hasShown = true;
+        openPopup();
+      }
+    });
+  }
 
   closeBtn.addEventListener('click', closePopup);
   overlay.addEventListener('click', function(e){
