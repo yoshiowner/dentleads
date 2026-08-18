@@ -85,6 +85,13 @@ h2 em{color:var(--gold);font-style:italic}
 .card i{color:var(--gold);font-size:20px;margin-bottom:14px;display:block}
 .card h3{font-family:'Syne',sans-serif;font-size:15px;margin-bottom:10px}
 .card p{color:var(--muted);font-size:13.5px;line-height:1.6}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;counter-reset:step;margin-top:8px}
+.step{position:relative;padding:0 28px 0 0}
+.step:not(:last-child){border-right:1px solid var(--gold-line)}
+.step-num{font-family:'Cormorant Garamond',serif;font-size:40px;color:var(--gold);opacity:.5;line-height:1;margin-bottom:14px}
+.step h3{font-family:'Syne',sans-serif;font-size:15px;margin-bottom:10px}
+.step p{color:var(--muted);font-size:13.5px;line-height:1.65}
+@media(max-width:800px){.steps{grid-template-columns:1fr;gap:28px}.step{border-right:none;padding-right:0}}
 .stat-row{display:flex;gap:32px;flex-wrap:wrap;margin-top:8px}
 .stat{flex:1;min-width:200px}
 .stat b{font-family:'Cormorant Garamond',serif;font-size:34px;color:var(--gold-bright);display:block}
@@ -138,6 +145,18 @@ footer{padding:40px 0;background:var(--void)}
 <div class="card"><i class="fa-solid fa-bullseye"></i><h3>Criativo focado em estética</h3><p>Anúncio com resultado visual e linguagem de conforto e discrição, não jargão técnico de ortodontia tradicional.</p></div>
 <div class="card"><i class="fa-solid fa-location-dot"></i><h3>Segmentação por região</h3><p>Alcance limitado ao raio real de deslocamento do paciente até sua clínica. Sem desperdiçar verba com quem nunca vai chegar até você.</p></div>
 <div class="card"><i class="fa-solid fa-repeat"></i><h3>Follow-up estruturado</h3><p>Lead de alinhador que não recebe retorno em poucos dias esfria e vai pesquisar em outra clínica. Protocolo de acompanhamento nos primeiros dias, com opção de IA respondendo 24h no plano Ascent.</p></div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="container">
+<h2>Como funciona, <em>do diagnóstico</em> ao paciente na cadeira</h2>
+<p class="lead">Sem enrolação. Três etapas, cada uma com prazo definido.</p>
+<div class="steps">
+<div class="step"><div class="step-num">01</div><h3>Diagnóstico gratuito em até 24h</h3><p>Analisamos sua clínica, concorrência local e onde você está perdendo paciente de alinhador hoje. Sem custo, sem compromisso.</p></div>
+<div class="step"><div class="step-num">02</div><h3>Campanha segmentada no ar</h3><p>Anúncios com criativo focado em estética e conforto, por cidade. Primeiros leads em 7 a 14 dias, período de calibragem do Meta Ads.</p></div>
+<div class="step"><div class="step-num">03</div><h3>Follow-up até fechar consulta</h3><p>Decisão de alinhador é mais lenta. Acompanhamento estruturado nos primeiros dias garante que o lead não esfrie até decidir.</p></div>
 </div>
 </div>
 </section>
